@@ -31,6 +31,7 @@ const UpdateMovie =(props) => {
         })
     }
  const handleSubmit = event => {
+    
     event.preventDefault()
     axios.put(`http://localhost:5000/api/movies/${state.id}`,state)
     .then(res => {
@@ -42,13 +43,14 @@ const UpdateMovie =(props) => {
  }
     return (
         <div>
+            <h1>Update Movie:</h1>
             <form onSubmit={handleSubmit}>
                 <input 
                 type="text"
                 name="title"
                 placeholder="Title"
                 onChange={handleChange}
-                value={this.state.title}
+                value={state.title}
                 
                 />
                 <input 
@@ -60,19 +62,21 @@ const UpdateMovie =(props) => {
                 
                 />
                 <input 
+                type="text"
                  name="director"
                  placeholder="Director"
-                 onChange={this.handleChange}
+                 onChange={handleChange}
                  value={state.metascore}
                 />
                 <input 
+                 type="text"
                   name="director"
                   placeholder="Director"
-                  onChange={this.handleChange}
+                  onChange={handleChange}
                   value={state.stars}
                 
                 />
-                <button>Update movie</button>
+                <button type="submit">Update movie</button>
             </form>
         </div>
     )
